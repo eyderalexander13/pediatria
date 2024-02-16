@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="icon" href="imagenes/icono.png" type="image/png">
+    <title>Consulta Externa de Pediatr&iacute;a - Hospital Universitario del Valle</title>
+       <style>
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #4faae8; /* Color de fondo */
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+		    font-size: 14px;
+      }
+
+      header {
+        background-color: #4faae8; /* Color del banner superior */
+        width: 100%;
+        padding: 0;
+        position: fixed; /* Fija el encabezado en la parte superior */
+        z-index: 100; /* Asegura que el encabezado esté en la parte superior */
+      }
+
+      .upper-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-image: url('imagenes/banner.png'); /* Reemplaza 'ruta/de/tu/imagen/fondo.jpg' con la ruta de tu imagen */
+    background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el contenedor */
+    background-position: center; /* Centra la imagen en el contenedor */
+    position: relative; /* Añade posición relativa para que los elementos hijos se posicionen correctamente */
+    color: white;
+}
+
+      .left-image {
+        flex-shrink: 0; /* Evita que la imagen se reduzca si es muy grande */
+      }
+
+      .title {
+        flex-grow: 1; /* El texto ocupa todo el espacio disponible en el centro */
+        text-align: center;
+        color: white;
+        font-size: 50px;
+		text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .right-image {
+        flex-shrink: 0; /* Evita que la imagen se reduzca si es muy grande */
+      }
+
+      footer {
+        background-color: #333; /* Color del pie de página */
+        width: 100%;
+        height: 100px; /* Altura del pie de página */
+        display: flex;
+        justify-content: center; /* Centrar contenido horizontalmente */
+        align-items: center; /* Centrar contenido verticalmente */
+        color: white; /* Color de texto */
+      }
+
+      .container {
+        display: flex;
+        flex-grow: 1;
+        margin-top: 200px; /* Ajusta el margen superior para evitar que el contenido quede debajo del encabezado */
+      }
+
+      .menu {
+        background-color: #fff; /* Color de fondo de los menús laterales */
+        flex-basis: 10%; /* Ancho de los menús laterales */
+        padding: 8px;
+        display: flex;
+        flex-direction: column; /* Botones en disposición vertical */
+      }
+
+      .content {
+        background-color: #fff; /* Color del espacio central */
+        flex-grow: 1;
+        padding: 10px;
+      }
+
+      iframe {
+        width: 100%;
+        height: 500px;
+        border: none; /* Eliminar bordes */
+        outline: none; /* Eliminar el borde de enfoque */
+      }
+
+      /* Estilos para el menú superior */
+      .menu-top {
+        display: flex;
+        padding: 3px;
+        justify-content: center;
+        background-color: #4A454B;
+      }
+	  
+/* Estilos para los botones del menú superior */
+.menu-top {
+    display: flex;
+    justify-content: center;
+    padding: 3px;
+    margin-bottom: 0; /* Asegúrate de que el margen inferior sea 0 */
+}
+.menu-top-button {
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px; /* Margen derecho para separar los botones */
+    display: inline-block; /* Mostrar los botones en línea */
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+/* Colores específicos para cada botón del menú superior */
+.inicio { background-color: #017180; }
+.guias { background-color: #01a550; }
+.clases { background-color: #fa9a20; }
+.recursos { background-color: #eb2e63; }
+.creditos { background-color: #07c3f3; }
+
+.menu-top-button:hover {
+    background-color: #1f61e5; /* Cambio de color al pasar el cursor sobre los botones */
+}
+
+/* Estilos para los botones del menú lateral */
+.menu-button {
+    color: white;
+    display: flex;
+    padding: 5px 5px;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 0 10px 5px 0; /* Margen inferior y derecho para separar los botones */
+}
+
+/* Colores específicos para cada botón del menú lateral */
+.puericultura { background-color: #4f66ac; }
+.alergologia { background-color: #78c144; }
+.cardiologia { background-color: #f2519d; }
+.cirugia { background-color: #ec2760; }
+.endocrinologia { background-color: #ffd64a; }
+.gastroenterologia { background-color: #00afeb; }
+.hematooncologia { background-color: #02a552; }
+.infectologia { background-color: #fa9b1d; }
+.neumologia { background-color: #ec2760; }
+.nefrologia { background-color: #07c3f3; }
+.neurologia { background-color: #5064ad; }
+.nutricion { background-color: #78c144; }
+.odontologia { background-color: #ffd64a; }
+.ortopedia { background-color: #02a552; }
+.reumatologia { background-color: #79c03f; }
+/* Agrega colores específicos para los demás botones del menú lateral según sea necesario */
+
+.menu-button:hover {
+    background-color: #1f61e5; /* Cambio de color al pasar el cursor sobre los botones */
+}
+
+  
+  .collage {
+        column-count: 3; /* Número de columnas deseado */
+        column-gap: 10px; /* Espacio entre las columnas */
+        background-color: #444; /* Color de fondo gris claro */
+        padding: 10px; /* Margen alrededor de la galería */
+    }
+
+    .collage a {
+    
+        width: 100%; /* Asegura que las imágenes ocupen todo el ancho de la columna */
+        margin-bottom: 10px; /* Agrega un espacio entre las imágenes */
+    }
+
+    .collage img {
+        max-width: 100%;
+        height: auto;
+    }
+
+.modal {
+   display: none;
+   position: fixed;
+   z-index: 1;
+   left: 0;
+   top: 0;
+   width: 100%;
+   height: 100%;
+   overflow: auto;
+   background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-contenido {
+   background-color: #fefefe;
+   margin: 15% auto;
+   padding: 20px;
+   border: 1px solid #888;
+   width: 80%;
+}
+
+.cerrar {
+   color: #aaa;
+   float: right;
+   font-size: 28px;
+   font-weight: bold;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+   color: black;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+    </style>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="upper-section">
+        <div class="left-image">
+		  <!-- Coloca tu imagen izquierda aqu&iacute; -->
+          <img src="imagenes/logo.png" alt="Consulta externa de Pediatría - HUV" height="160" align="right">
+        </div>
+        <div class="title">
+		 <!-- T&iacute;tulo de la p&aacute;gina --> 
+          Consulta externa de Pediatr&iacute;a</br>
+          Hospital Universitario del Valle
+		 </div>
+			<div class="right-image">
+				<img src="imagenes/doctor2.png" alt="Diagn&oacute;stico y manejo del S&iacute;ndrome de Guillain Barr&eacute;" width="140px">
+			</div>
+
+		</div>
+      </div>
+      <!-- Contenido del menú superior inferior -->
+      <div class="menu-top">
+<a class="menu-button menu-top-button inicio" href="index.html">Inicio</a>
+<a class="menu-button menu-top-button guias" href="guias.html">Gu&iacute;as</a>
+<a class="menu-button menu-top-button clases" href="clases.html">Clases</a>
+<a class="menu-button menu-top-button recursos" href="recursos.html">Recursos</a>
+<a class="menu-button menu-top-button creditos" href="creditos.html">Cr&eacute;ditos</a>
+      </div>
+    </header>
+</br>
+    <div class="container">
+      <div class="menu">
+<a class="menu-button puericultura" href="puericultura.html"><img src="imagenes/puericultura.png" width="40" height="40">Puericultura</a>
+<a class="menu-button alergologia" href="alergologia.html"><img src="imagenes/alergologia.png" width="40" height="40">Alergolog&iacute;a</a>
+<a class="menu-button cardiologia" href="cardiologia.html"><img src="imagenes/cardiologia.png" width="40" height="40">Cardiolog&iacute;a</a>
+<a class="menu-button cirugia" href="cirugia.html"><img src="imagenes/cirugia.png" width="40" height="40">Cirug&iacute;a</a>
+<a class="menu-button endocrinologia" href="endocrinologia.html"><img src="imagenes/endocrinologia.png" width="40" height="40">Endocrinolog&iacute;a</a>
+<a class="menu-button gastroenterologia" href="gastroenterologia.html"><img src="imagenes/gastroenterologia.png" width="40" height="40">Gastroenterolog&iacute;a</a>
+<a class="menu-button hematooncologia" href="hematooncologia.html"><img src="imagenes/hematooncologia.png" width="40" height="40">Hematooncolog&iacute;a</a>
+<a class="menu-button infectologia" href="infectologia.html"><img src="imagenes/infectologia.png" width="40" height="40">Infectolog&iacute;a</a>
+<a class="menu-button nefrologia" href="nefrologia.html"><img src="imagenes/nefrologia.png" width="40" height="40">Nefrolog&iacute;a</a>
+<a class="menu-button neumologia" href="neumologia.html"><img src="imagenes/neumologia.png" width="40" height="40">Neumolog&iacute;a</a>
+<a class="menu-button neurologia" href="neurologia.html"><img src="imagenes/neurologia.png" width="40" height="40">Neurolog&iacute;a</a>
+<a class="menu-button nutricion" href="nutricion.html"><img src="imagenes/nutricion.png" width="40" height="40">Nutrici&oacute;n</a>
+<a class="menu-button odontologia" href="odontologia.html"><img src="imagenes/odontologia.png" width="40" height="40">Odontolog&iacute;a</a>
+<a class="menu-button ortopedia" href="ortopedia.html"><img src="imagenes/ortopedia.png" width="40" height="40">Ortopedia</a>
+<a class="menu-button reumatologia" href="reumatologia.html"><img src="imagenes/reumatologia.png" width="40" height="40">Reumatolog&iacute;a</a>
+      </div>
+
+      <div class="content">
+       
+<h1>Bienvenido a la secci&oacute;n de Puericultura</h1>
+<p>En este espacio, encontrar&aacute;s valiosa informaci&oacute;n que te ayudar&aacute; en la pr&aacute;ctica cl&iacute;nica y en tu formaci&oacute;n acad&eacute;mica. La puericultura es fundamental para garantizar una atenci&oacute;n de calidad a los ni&ntilde;os durante su desarrollo, abordando diversas etapas y aspectos pedi&aacute;tricos.</p>
+
+<div class="collage">
+
+    <a href="alimentacion.html">
+        <img src="puericultura/alimentacion.jpg" alt="Alimentación en Pediatría">
+    </a>
+    
+    <a href="vacunas.html">
+        <img src="puericultura/vacunas.jpg" alt="Vacunas">
+    </a>
+
+    <a href="alimentacion_complementaria.html" >
+        <img src="puericultura/alimentacion_complementaria.png" alt="Alimentación Complementaria">
+    </a>
+
+        <a href="dificultades_alimentacion.html" >
+        <img src="puericultura/dificultades_alimentacion.jpg" alt="Dificultades en la alimentación">
+    </a>
+    
+  
+</div>
+
+<!-- Agrega el JavaScript de Lightbox2 -->
+<script src="lightbox/dist/js/lightbox-plus-jquery.min.js"></script>
+
+    </div>
+
+      <div class="menu" align="center">
+        <!-- Contenido del menú derecho -->
+        <a href="https://www.huv.gov.co/" target="_blank">
+          <img src="imagenes/huv.jpg" alt="Hospital Universitario del Valle 'Evaristo García'" width="150px">
+        </a>
+</br>
+                <a href="https://scp.com.co/" target="_blank">
+          <img src="imagenes/logo_scp.png" alt="Sociedad Colombiana de Pediatría" width="110px">
+        </a>
+</br>
+                <a href="https://www.aeped.es/" target="_blank">
+          <img src="imagenes/logo_aep.png" alt="Asociación española de Pediatría" width="130px">
+        </a>
+        </br>
+                <a href="https://www.aap.org/" target="_blank">
+          <img src="imagenes/logo_aap.png" alt="Asociación americana de Pediatría" width="130px">
+        </a>
+
+      </div>
+  </div>
+
+    <footer>
+       <center>
+      <!-- Contenido del pie de p&aacute;gina -->
+      Copyright &#169; Dr. Humberto Ort&iacute;z, Pediatra; residentes; m&eacute;dicos internos y estudiantes de quinto a&ntilde;o de Medicina de la Universidad del Valle. 
+    </br>
+    Desarrollo web por Eyder A. Rodr&iacute;guez [eyder@dr.com]
+   </center>
+    </footer>
+
+ 
+
+  </body>
+
+
+
+</html>
+
